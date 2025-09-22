@@ -1,0 +1,350 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    padding: 40px 30px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Main content */
+main {
+    padding: 40px 30px;
+}
+
+/* Input section */
+.input-section {
+    margin-bottom: 40px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#nombreAmigo {
+    flex: 1;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+#nombreAmigo:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#btnAgregar {
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btnAgregar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+#btnAgregar:active {
+    transform: translateY(0);
+}
+
+/* Error message */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-top: 5px;
+    padding: 10px;
+    background: #ffebee;
+    border-radius: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Lista section */
+.lista-section {
+    margin-bottom: 40px;
+}
+
+.lista-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.lista-amigos {
+    list-style: none;
+    margin-bottom: 25px;
+    min-height: 120px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.lista-amigos li {
+    background: white;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.lista-amigos li:last-child {
+    margin-bottom: 0;
+}
+
+.lista-amigos .nombre {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.lista-amigos .numero {
+    background: #667eea;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.lista-amigos.empty::before {
+    content: "No hay participantes aún. ¡Agrega algunos amigos!";
+    color: #7f8c8d;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.actions button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btnSortear {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    flex: 1;
+}
+
+#btnSortear:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#btnSortear:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+#btnLimpiar {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+#btnLimpiar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Resultado section */
+.resultado-section {
+    display: none;
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.resultado-section.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.resultado-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.lista-resultados {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.lista-resultados li {
+    background: white;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+}
+
+.lista-resultados .participante {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.lista-resultados .asignado {
+    color: #667eea;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#btnNuevoSorteo {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btnNuevoSorteo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    header {
+        padding: 30px 20px;
+    }
+    
+    header h1 {
+        font-size: 2em;
+    }
+    
+    main {
+        padding: 30px 20px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    #btnAgregar {
+        padding: 12px 20px;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .actions button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+    
+    header p {
+        font-size: 1em;
+    }
+    
+    main {
+        padding: 20px 15px;
+    }
+}

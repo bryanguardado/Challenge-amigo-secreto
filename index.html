@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigo Secreto - Challenge Alura Latam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎁 Amigo Secreto</h1>
+            <p>¡Organiza tu intercambio de regalos de forma fácil y divertida!</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <div class="input-group">
+                    <input type="text" id="nombreAmigo" placeholder="Escribe el nombre de tu amigo" maxlength="50">
+                    <button id="btnAgregar" onclick="agregarAmigo()">Añadir</button>
+                </div>
+                <div id="mensajeError" class="error-message"></div>
+            </section>
+
+            <section class="lista-section">
+                <h2>Lista de Participantes</h2>
+                <ul id="listaAmigos" class="lista-amigos">
+                    <!-- Los nombres se agregarán aquí dinámicamente -->
+                </ul>
+                <div class="actions">
+                    <button id="btnSortear" onclick="sortearAmigo()" disabled>🎲 Sortear Amigo Secreto</button>
+                    <button id="btnLimpiar" onclick="limpiarLista()">🗑️ Limpiar Lista</button>
+                </div>
+            </section>
+
+            <section class="resultado-section" id="resultadoSection">
+                <h2>🎉 Resultado del Sorteo</h2>
+                <ul id="listaResultados" class="lista-resultados">
+                    <!-- Los resultados se mostrarán aquí -->
+                </ul>
+                <button id="btnNuevoSorteo" onclick="nuevoSorteo()">Nuevo Sorteo</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Challenge Alura Latam - Amigo Secreto</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
